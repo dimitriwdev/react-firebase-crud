@@ -2,8 +2,17 @@ import React, { useState, useEffect } from "react";
 import StyledFirebaseAuth from "react-firebaseui/StyledFirebaseAuth";
 import firebase from "./utils/firebaseConfig";
 import Main from "./components/Main";
+import { makeStyles } from '@material-ui/core/styles';
+
+const useStyles = makeStyles(() => ({
+  nav: {
+    width: '100%',
+    display: 'flex',
+  },
+}))
 
 const App = () => {
+  const classes = useStyles();
   const [isSignedIn, setIsSignedIn] = useState(false);
 
   const uiConfig = {
@@ -26,11 +35,11 @@ const App = () => {
   }, []);
 
   return (
-    <div className="App" style={{ textAlign: 'center' }}>
+    <div className={classes.app} style={{ textAlign: 'center' }}>
       {isSignedIn ? (
         <Main />
       ) : (
-        <div className="login-page">
+        <div className={classes.loginPage}>
           <h1>React CRUD</h1>
           <StyledFirebaseAuth
             uiConfig={uiConfig}
