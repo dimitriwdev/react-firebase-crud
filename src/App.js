@@ -31,7 +31,7 @@ const App = () => {
         <Main />
       ) : (
         <div className="login-page">
-          <h1>React Auth</h1>
+          <h1>React CRUD</h1>
           <StyledFirebaseAuth
             uiConfig={uiConfig}
             firebaseAuth={firebase.auth()}
